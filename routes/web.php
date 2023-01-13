@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CameraController;
+use App\Http\Controllers\user\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.layouts.app');
+    return view('frontend.home');
 });
-
+Route::post('/', function () {
+    return response('json');
+});
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/404',function () {
+    return view('errors.404');
+});
+Route::get('/500',function () {
+    return view('errors.500');
+});
+Route::get('/403',function () {
+    return view('errors.403');
+});
+Route::middleware(['auth','admin'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user', [HomeController::class,'index']);
+});
+
