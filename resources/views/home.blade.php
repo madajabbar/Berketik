@@ -25,11 +25,11 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">QR Anda</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    ...
+                <div class="modal-body mx-auto">
+                    {!!$qr!!}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -46,7 +46,7 @@
             <div class="col-12 sha_tile">
                 <div>
                     <span class="tile_icon">
-                        <i class="fa fa-fire"></i>
+                        <i class="fa fa-user"></i>
                     </span>
                     <span class="tile_info">
                         Humidity

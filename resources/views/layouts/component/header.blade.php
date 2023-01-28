@@ -7,6 +7,9 @@
         <div class="col-12">
             <span class="sub-heading">{{$date}}</span>
             <span class="heading">Halo {{$user->name}}</span>
+            @foreach ($user->access as $data)
+                {{ $data->name}}
+            @endforeach
         </div>
     </div>
 </section>
@@ -38,9 +41,16 @@
                     </span>
                 </li>
                 <li class="on">
-                    <span>
-                        <i class="fa fa-plus"></i>
-                    </span>
+                    <a class="sidebar-link" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        <span>
+                            <i class="fa fa-sign-out"></i>
+                        </span>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </div>
