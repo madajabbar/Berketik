@@ -25,7 +25,7 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check() && Auth::user()->role_id == 1) {
                 return redirect(RouteServiceProvider::HOME);
             }
-            else if(Auth::guard($guard)->check()){
+            if (Auth::guard($guard)->check() && Auth::user()->role_id != 1){
                 return redirect(RouteServiceProvider::USER);
             }
         }

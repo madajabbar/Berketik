@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('role_id');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('unique_key');
 
             $table->foreign('role_id')->on('roles')->references('id')->onUpdate('CASCADE')->onDelete('CASCADE');
 

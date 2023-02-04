@@ -44,27 +44,27 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item active ">
+                <li class="sidebar-item ">
                     <a href="index.html" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-stack"></i>
                         <span>Master Data</span>
                     </a>
-                    <ul class="submenu ">
+                    <ul class="submenu">
                         <li class="submenu-item ">
-                            <a href="component-alert.html">Pintu</a>
+                            <a href="{{route('role.index')}}">Role</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-badge.html">Akses</a>
+                            <a href="{{route('access.index')}}">Akses</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="component-breadcrumb.html">Ruangan</a>
+                            <a href="{{route('room.index')}}">Ruangan</a>
                         </li>
                     </ul>
                 </li>
@@ -85,9 +85,15 @@
                 </li>
 
                 <li class="sidebar-item  ">
-                    <a href="{{ url('/') }}" class='sidebar-link'>
-                        <i class="bi bi-life-preserver"></i>
-                        <span>Halaman Utama</span>
+                    <a href="{{ route('user-management.index') }}" class='sidebar-link'>
+                        <i class="bi bi-person"></i>
+                        <span>Manajemen User</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  ">
+                    <a href="{{ route('access-management.index') }}" class='sidebar-link'>
+                        <i class="bi-universal-access-circle"></i>
+                        <span>Manajemen Akses</span>
                     </a>
                 </li>
 
@@ -109,7 +115,7 @@
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
-                    </form> 
+                    </form>
                 </li>
 
             </ul>

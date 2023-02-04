@@ -20,7 +20,13 @@ class HomeController extends Controller
         $data['user'] = User::find(Auth::user()->id);
         // dd($data['user']->access);
         $data['date'] = Carbon::now()->format('Y-m-d');
-        $data['qr'] = QrCode::size(400)->generate($data['user']->name.'-'.$data['user']->access);
+        $access = [];
+        foreach($data['user']->access as $key => $value) {
+            $access[] = $value->unique_key;
+        }
+        // dd($access);
+        $data['qr'] = QrCode::size(400)->generate($data['user']->name.'-'.implode('-',$access));
+        // dd($data['user']->access);
         return view('home',$data);
     }
 }

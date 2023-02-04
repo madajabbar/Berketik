@@ -16,10 +16,13 @@ return new class extends Migration
         Schema::create('accesses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('ip_address')->nullable();
             $table->timestamp('start_at');
             $table->timestamp('end_at');
+            $table->string('unique_key');
+            $table->unsignedBigInteger('room_id');
             $table->timestamps();
+
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 

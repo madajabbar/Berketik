@@ -5,7 +5,7 @@
         @csrf
         <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Sign Up with</p>
-            <button type="button" class="btn btn-primary btn-floating mx-1">
+            {{-- <button type="button" class="btn btn-primary btn-floating mx-1">
                 <i class="fab fa-facebook-f"></i>
             </button>
 
@@ -15,15 +15,17 @@
 
             <button type="button" class="btn btn-primary btn-floating mx-1">
                 <i class="fab fa-linkedin-in"></i>
-            </button>
+            </button> --}}
         </div>
 
-        <div class="divider d-flex align-items-center my-4">
+        {{-- <div class="divider d-flex align-items-center my-4">
             <p class="text-center fw-bold mx-3 mb-0">Or</p>
-        </div>
+        </div> --}}
 
         <!-- Email input -->
         <div class="form-outline">
+            {{-- <h1>Register</h1> --}}
+            <label class="form-label" for="form3Example3">Email address</label>
             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                 value="{{ old('email') }}" required autocomplete="email">
 
@@ -32,33 +34,41 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-            <label class="form-label" for="form3Example3">Email address</label>
         </div>
 
         <div class="form-outline">
+            <label class="form-label" for="name">Username</label>
             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                 value="{{ old('name') }}" required autocomplete="name" autofocus>
-            <label class="form-label" for="name">Username</label>
             @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
         </div>
+        <div class="form-outline">
+            <label class="form-label" for="name">Status</label>
+            <select name="role_id" id="role_id" class="form-select">
+                @foreach ($role as $data)
+                    <option value="{{$data->id}}">{{$data->name}}</option>
+                @endforeach
+            </select>
+        </div>
 
         <!-- Password input -->
         <div class="form-outline mb-3">
+            <label class="form-label" for="form3Example4">Password</label>
             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
-            @enderror            <label class="form-label" for="form3Example4">Password</label>
+            @enderror
             <div class="form-outline mb-3">
+                <label class="form-label" for="form3Example4">Confirm Password</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
 
-                <label class="form-label" for="form3Example4">Confirm Password</label>
             </div>
 
             <div class="d-flex justify-content-between align-items-center">

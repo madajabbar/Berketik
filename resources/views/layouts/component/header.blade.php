@@ -1,15 +1,13 @@
 <!-- Start Section Header Bar -->
 <section id="sha_header_bar" class="col-12">
     <div class="row">
-        <div class="col-12">
-            <i class="fa fa-chevron-left"></i>
-        </div>
-        <div class="col-12">
+        <div class="col-6">
             <span class="sub-heading">{{$date}}</span>
             <span class="heading">Halo {{$user->name}}</span>
-            @foreach ($user->access as $data)
-                {{ $data->name}}
-            @endforeach
+        </div>
+        <div class="col-6 text-right">
+            <span class="sub-heading">Status Anda</span>
+            <span class="heading">{{$user->role->name}}</span>
         </div>
     </div>
 </section>

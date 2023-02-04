@@ -13,4 +13,7 @@ class Access extends Model
     public function user(){
         return $this->belongsToMany(User::class, 'access_users');
     }
+    public function room(){
+        return $this->belongsTo(Room::class);
+    }
 }

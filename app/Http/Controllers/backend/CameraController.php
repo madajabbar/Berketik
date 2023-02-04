@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
+use App\Http\Controllers\Controller;
+use App\Models\Access;
 use App\Models\Camera;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class CameraController extends Controller
@@ -12,8 +15,20 @@ class CameraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $ruangan_id = $request->room_id;
+        $str = 'admin-$2y$05$mvSFmzTfoWwJ3f5Zy4/OEO/Jh4zy4rP0LnvdMWfJkWGX4y2JWczg.-$2y$10$Uzm1x3qnbS/oK8G4oFR.a.G8qoDgczrr5kESeEU/0eT542qBTF4/u';
+        $expld = explode('-', $str);
+        $arr = Access::whereIn('unique_key',$expld)->where('room_id',$ruangan_id)->get();
+        $room = [];
+        foreach($arr as $data){
+            $room[]=$data->room_id;
+        }
+        $ruangan = Room::whereIn('id',$room)->first();
+        // dd($ruangan->id == $ruangan_id);
+
+        return $ruangan->id == $ruangan_id;
     }
 
     /**
@@ -35,7 +50,7 @@ class CameraController extends Controller
     public function store(Request $request)
     {
 
-        $data =Camera::create(['link' => $request->input('link')]);
+        $data = Camera::create(['link' => $request->input('link')]);
 
         // do something with the data
         // save it to the database, etc.
