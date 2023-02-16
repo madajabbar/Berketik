@@ -50,9 +50,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Ruangan</th>
-                                <th>User</th>
+                                <th>Nama User</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -80,7 +79,7 @@
             var jquery_datatable = $("#table1").DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('access-management.index') }}",
+                ajax: "{{ route('access-management.show',$slug) }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex'
@@ -90,12 +89,8 @@
                         name: 'name'
                     },
                     {
-                        data: 'room_id',
-                        name: 'room_id'
-                    },
-                    {
-                        data: 'user',
-                        name: 'user'
+                        data: 'role',
+                        name: 'role'
                     },
                     {
                         data: 'action',

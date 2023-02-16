@@ -15,10 +15,10 @@ class CameraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function store(Request $request)
     {
         $ruangan_id = $request->room_id;
-        $str = 'admin-$2y$05$mvSFmzTfoWwJ3f5Zy4/OEO/Jh4zy4rP0LnvdMWfJkWGX4y2JWczg.-$2y$10$Uzm1x3qnbS/oK8G4oFR.a.G8qoDgczrr5kESeEU/0eT542qBTF4/u';
+        $str = 'admin-$2y$10$hIZWeevyuMNaAvWrmbSNt.cBlEtvOcZDU5DQfLWbKT3.Ci7bL..Dy-testi-testi-testimoni';
         $expld = explode('-', $str);
         $arr = Access::whereIn('unique_key',$expld)->where('room_id',$ruangan_id)->get();
         $room = [];
@@ -27,8 +27,21 @@ class CameraController extends Controller
         }
         $ruangan = Room::whereIn('id',$room)->first();
         // dd($ruangan->id == $ruangan_id);
-
-        return $ruangan->id == $ruangan_id;
+        if ($ruangan->id == $ruangan_id){
+            Camera::create([
+                'link' => $request->room_id
+            ]);
+            return response()->json([
+                'success' => true,
+               'response_code' => 200,
+            ]);
+        }
+        else{
+            return response()->json([
+                'success' => true,
+               'response_code' => 200,
+            ]);
+        }
     }
 
     /**
@@ -47,16 +60,16 @@ class CameraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    // public function store(Request $request)
+    // {
 
-        $data = Camera::create(['link' => $request->input('link')]);
+    //     $data = Camera::create(['link' => $request->input('link')]);
 
-        // do something with the data
-        // save it to the database, etc.
+    //     // do something with the data
+    //     // save it to the database, etc.
 
-        return response()->json(['status' => 'success']);
-    }
+    //     return response()->json(['status' => 'success']);
+    // }
 
     /**
      * Display the specified resource.

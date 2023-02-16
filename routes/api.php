@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CameraController;
+use App\Http\Controllers\backend\CameraController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;

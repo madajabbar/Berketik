@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('start_at');
             $table->timestamp('end_at');
             $table->string('unique_key');
+            $table->string('slug');
             $table->unsignedBigInteger('room_id');
             $table->timestamps();
 

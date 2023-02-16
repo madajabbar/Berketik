@@ -6,7 +6,6 @@ use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\RoomController;
 use App\Http\Controllers\backend\UserManagementController;
-use App\Http\Controllers\backend\CameraController;
 use App\Http\Controllers\user\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +24,7 @@ Route::get('/', function () {
     return view('frontend.home');
 });
 Auth::routes();
-Route::resource('/camera', CameraController::class);
+// Route::resource('/camera', CameraController::class);
 Route::get('/404',function () {
     return view('errors.404');
 });
