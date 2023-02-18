@@ -21,7 +21,7 @@
                             <div class="form-line">
                                 <label for="access_id">Akses</label>
                                 <input type="text" name="access_id" id="access_id" class="form-control"
-                                    value="{{ $access->id }}" disabled hidden>
+                                    value="{{ $access->id }}" hidden>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -42,7 +42,7 @@
                                             </td>
                                             <td>
                                                 {{ $data->name }}
-                                                <input type="text" name="user[]" value="{{ $data->id }}" hidden>
+                                                <input type="text" name="user_id[]" value="{{ $data->id }}" hidden>
                                             </td>
                                             <td>{{ $data->role->name }}</td>
                                             <td>

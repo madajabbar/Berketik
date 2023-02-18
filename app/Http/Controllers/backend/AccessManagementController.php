@@ -53,7 +53,37 @@ class AccessManagementController extends Controller
     }
 
     public function store(Request $request){
-        dd($request->add);
+        $i = 0;
+        // foreach($request->add as $key){
+        //     $key;
+        //     // AccessUser::create(
+        //     //     [
+        //     //         'access_id'=>$request->access_id,
+        //     //         'user_id'=>$request->user_id
+        //     //     ]
+        //     // );
+        // }
+        // dd($i);
+        // dd($request->access_id);
+
+        $count = Count($request->add);
+        foreach($request->add as $key){
+            if($key == 'on'){
+                AccessUser::create(
+                    [
+                        'access_id'=>$request->access_id,
+                        'user_id'=>$request->user_id[$i]
+                    ]
+                );
+                // dd('test');
+            }
+            else{
+                // dd('false test');
+            }
+            $i++;
+        }
+        return 'success';
+
     }
 
     public function show($slug, Request $request){
