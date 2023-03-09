@@ -22,10 +22,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::resource('/camera', CameraController::class);
+Route::get('room', [CameraController::class,'index']);
+Route::get('access', [CameraController::class,'show']);
 Route::post('/test',function (Request $request) {
-    Storage::append("arduino-log.txt",
+    $data = Storage::append("arduino-log.txt",
         "Time: " . now()->format("Y-m-d H:i:s") . ', ' .
         "Temperature: " . $request->get("temperature", "n/a") . '°C, ' .
         "Humidity: " . $request->get("humidity", "n/a") . '%'
     );
+    return response()->json(['success'=>$data]);
 });
