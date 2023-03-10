@@ -6,6 +6,7 @@ use App\Models\Access;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class AccessSeeder extends Seeder
 {
@@ -46,5 +47,18 @@ class AccessSeeder extends Seeder
                 'room_id'=>3
             ]
         );
+        for($i=0;$i<5;$i++){
+            $name = fake()->city();
+            Access::create(
+                [
+                    'name'=> $name,
+                   'start_at'=>Carbon::now(),
+                    'end_at'=>Carbon::now(),
+                    'unique_key'=>fake()->ean13(),
+                   'slug'=> Str::slug($name),
+                    'room_id'=>1,
+                ]
+            );
+        }
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\backend\CameraController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +18,7 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', [UserController::class,'index']);
 
 
 Route::resource('/camera', CameraController::class);
@@ -31,4 +31,10 @@ Route::post('/test',function (Request $request) {
         "Humidity: " . $request->get("humidity", "n/a") . '%'
     );
     return response()->json(['success'=>$data]);
+});
+Route::post('/login', [AuthController::class,'login']);
+Route::post('/register', [AuthController::class,'register']);
+Route::middleware('auth:api')->group(function(){
+    Route::get('/user',[UserController::class,'index']);
+    Route::get('/logout', [AuthController::class,'logout']);
 });

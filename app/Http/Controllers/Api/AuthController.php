@@ -7,8 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -47,9 +47,40 @@ class AuthController extends Controller
         }
     }
     public function logout(Request $request){
-        $request->user()->token()->revoke();
+        $token = $request->user()->currentAccessToken()->delete();
+        // dd($token);
+        return ResponseFormatter::success($token, 'Token Revoked');
     }
-    public function register(){
+    public function register(Request $request){
+        try{
+            $request->validate([
+                'name' => ['required','string','max:255'],
+                'email' => ['required','string','max:255','unique:users'],
+                'password' => ['required','string'],
+            ]);
+            User::create([
+                'name' => $request->name,
+                'username' => $request->username,
+                'email' => $request->email,
+                'role_id' => 2,
+                'password' => Hash::make($request->password),
+                'unique_key' => Hash::make($request->email.'-'.'2')
+            ]);
+            $user = User::where('email',$request->email)->first();
 
+            $tokenResult = $user->createToken('authToken')->plainTextToken;
+
+            return ResponseFormatter::success([
+                'access_token' => $tokenResult,
+                'token_type' => 'Bearer',
+                'user' => $user,
+            ], 'User Registered');
+        }
+        catch(Exception $e){
+            return ResponseFormatter::error([
+                'error' => $e->getMessage(),
+                'trace' => $e->getTrace(),
+            ], 'User Unregistered', 500);
+        }
     }
 }
