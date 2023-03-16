@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cameras', function (Blueprint $table) {
+        Schema::create('logs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('access_id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('room_id');
             $table->string('status');
             $table->timestamps();
 
+            $table->foreign('access_id')->references('id')->on('accesses')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cameras');
+        Schema::dropIfExists('logs');
     }
 };

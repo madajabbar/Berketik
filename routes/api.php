@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\EdgeController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\backend\CameraController;
 use Illuminate\Http\Request;
@@ -22,8 +23,10 @@ use Illuminate\Support\Facades\Storage;
 
 
 Route::resource('/camera', CameraController::class);
-Route::get('room', [CameraController::class,'index']);
-Route::get('access', [CameraController::class,'show']);
+Route::get('/room', [EdgeController::class,'room']);
+Route::get('/access', [EdgeController::class,'access']);
+Route::get('/getuser', [EdgeController::class,'user']);
+Route::post('/get',[EdgeController::class,'get']);
 Route::post('/test',function (Request $request) {
     $data = Storage::append("arduino-log.txt",
         "Time: " . now()->format("Y-m-d H:i:s") . ', ' .
