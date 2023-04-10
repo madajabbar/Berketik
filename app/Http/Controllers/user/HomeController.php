@@ -25,7 +25,7 @@ class HomeController extends Controller
             $access[] = $value->unique_key;
         }
         // dd($access);
-        $data['qr'] = QrCode::size(250)->generate($data['user']->name.'-'.implode('-',$access));
+        $data['qr'] = QrCode::size(300)->generate($data['user']->name.'-'.implode('-',$access));
         // dd($data['user']->access);
         return view('home',$data);
     }
