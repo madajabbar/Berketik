@@ -12,10 +12,16 @@
                         <option value="{{ $data->id }}">{{ $data->name }}</option>
                     @endforeach
                 </select>
+                <label for="day">Hari</label>
+                <select name="day" id="day" class="form-select">
+                    @foreach ($day as $data)
+                        <option value="{{ $data }}">{{ $data }}</option>
+                    @endforeach
+                </select>
                 <label for="start_at">Mulai</label>
-                <input type="datetime-local" name="start_at" id="start_at" class="form-control">
+                <input type="time" name="start_at" id="start_at" class="form-control">
                 <label for="end_at">Selesai</label>
-                <input type="datetime-local" name="end_at" id="end_at" class="form-control">
+                <input type="time" name="end_at" id="end_at" class="form-control">
             </div>
         </div>
         <div class="modal-footer">

@@ -8,13 +8,22 @@ use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
-
+use Illuminate\Support\Str;
 class AccessController extends Controller
 {
     public function index(Request $request)
     {
         $data['title'] = 'Akses';
         $data['room'] = Room::all();
+        $data['day'] = [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+            'Sunday',
+        ];
         if ($request->ajax()) {
             $data = Access::latest()->get();
             return DataTables::of($data)
@@ -40,7 +49,9 @@ class AccessController extends Controller
             ['id' => $request->id],
             [
                 'name' => $request->name,
+                'slug' => Str::slug($request->name),
                 'room_id' => $request->room_id,
+                'day' => $request->day,
                 'start_at' => $request->start_at,
                 'end_at' => $request->end_at,
                 'unique_key' => Hash::make($request->name.'-'.$request->room_id),
