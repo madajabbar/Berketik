@@ -46,14 +46,6 @@
                 </span>
             @enderror
         </div>
-        <div class="form-outline">
-            <label class="form-label" for="name">Status</label>
-            <select name="role_id" id="role_id" class="form-select">
-                @foreach ($role as $data)
-                    <option value="{{$data->id}}">{{$data->name}}</option>
-                @endforeach
-            </select>
-        </div>
 
         <!-- Password input -->
         <div class="form-outline mb-3">
