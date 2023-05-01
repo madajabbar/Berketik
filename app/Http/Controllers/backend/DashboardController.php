@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index(){
         $data['title'] = 'Home';
-        $data['log'] = Log::latest(5);
+        $data['log'] = Log::latest()->get(5);
         return view('backend.dashboard.index',$data);
     }
 }
