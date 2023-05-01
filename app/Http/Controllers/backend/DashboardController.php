@@ -11,7 +11,7 @@ class DashboardController extends Controller
     public function index(){
         $data['title'] = 'Home';
         $data['log'] = Log::orderBy('id','DESC')->take(5)->get();
-        dd($data['log']);
+        // dd($data['log']);
         return view('backend.dashboard.index',$data);
     }
 }
