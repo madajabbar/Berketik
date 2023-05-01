@@ -157,7 +157,7 @@
                 <div class="col-12 col-xl-8">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Latest Comments</h4>
+                            <h4>Latest Login</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -165,24 +165,26 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Comment</th>
+                                            <th>Room</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="col-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar avatar-md">
-                                                        <img
-                                                            src="{{ asset('Backend/assets/images/faces/5.jpg') }}">
+                                        @foreach ($log as $data)
+                                            <tr>
+                                                <td class="col-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar avatar-md">
+                                                            <img
+                                                                src="{{ asset('Backend/assets/images/faces/5.jpg') }}">
+                                                        </div>
+                                                        <p class="font-bold ms-3 mb-0">{{$data->user->name}}</p>
                                                     </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                                </div>
-                                            </td>
-                                            <td class="col-auto">
-                                                <p class=" mb-0">Congratulations on your graduation!</p>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                                <td class="col-auto">
+                                                    <p class=" mb-0">{{$data->access->room->name}}</p>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                         <tr>
                                             <td class="col-3">
                                                 <div class="d-flex align-items-center">
