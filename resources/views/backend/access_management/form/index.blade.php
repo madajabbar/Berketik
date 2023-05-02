@@ -42,12 +42,11 @@
                                             </td>
                                             <td>
                                                 {{ $data->name }}
-                                                <input type="text" name="user_id[]" value="{{ $data->id }}" hidden>
                                             </td>
                                             <td>{{ $data->role->name }}</td>
                                             <td>
                                                 <input type="checkbox" class="form-check-input" name="add[]"
-                                                    id="checkbox2">
+                                                    id="checkbox2" value{{$data->id}}>
                                                 <label for="checkbox2">Tambahkan</label>
                                             </td>
                                         </tr>

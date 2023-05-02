@@ -83,7 +83,6 @@ class AccessManagementController extends Controller
             $i++;
         }
         return 'success';
-
     }
 
     public function show($slug, Request $request){
