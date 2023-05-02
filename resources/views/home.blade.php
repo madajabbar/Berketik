@@ -28,7 +28,7 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">QR Anda</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
                 </div>
-                <div class="modal-body mx-auto h-100">
+                <div class="modal-body">
                     <div class="container h-100">
                         <div class="row align-items-center">
                             <div class="col">
