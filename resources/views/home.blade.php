@@ -26,7 +26,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="d-flex justify-content-center">
-                        {{!qr!}}
+                        {{!!qr!!}}
                     </div>
                   </div>
                 <div class="modal-footer">
