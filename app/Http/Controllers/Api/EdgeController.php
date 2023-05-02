@@ -30,7 +30,7 @@ class EdgeController extends Controller
     }
     public function user()
     {
-        $user = User::select('name', 'unique_key')->get();
+        $user = User::select('id','name', 'unique_key')->get();
         return response()->json(
             $user
         );
