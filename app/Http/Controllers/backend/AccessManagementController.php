@@ -65,7 +65,7 @@ class AccessManagementController extends Controller
         // }
         // dd($i);
         // dd($request->access_id);
-
+        dd($request->user_id);
         $count = Count($request->add);
         foreach($request->add as $key){
             if($key == 'on'){
