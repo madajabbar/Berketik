@@ -29,7 +29,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
                 </div>
                 <div class="modal-body mx-auto h-100">
-                    <div class="container bg-red h-100">
+                    <div class="container bg-danger h-100">
                         {!! $qr !!}
                     </div>
                 </div>
