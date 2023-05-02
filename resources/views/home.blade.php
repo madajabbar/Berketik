@@ -21,8 +21,8 @@
     </section>
     <!-- Button trigger modal -->
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade h-100" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog h-100">
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="container-fluid">
