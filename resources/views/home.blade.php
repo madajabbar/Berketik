@@ -30,9 +30,11 @@
                 </div>
                 <div class="modal-body mx-auto h-100">
                     <div class="container h-100">
-                        <span class="align-middle">
-                            {!! $qr !!}
-                        </span>
+                        <div class="row">
+                            <div class="col align-self-center">
+                                {!! $qr !!}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
