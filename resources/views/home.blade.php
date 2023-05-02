@@ -29,7 +29,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
                 </div>
                 <div class="modal-body mx-auto">
-                <div class="container">
+                <div class="container align-middle">
                     {!!$qr!!}
                 </div>
                 </div>
