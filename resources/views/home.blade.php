@@ -29,7 +29,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
                 </div>
                 <div class="modal-body">
-                    <div class="container h-100">
+                    <div class="container h-100 bg-danger">
                         <div class="row align-items-center">
                             <div class="col">
                                 One of three columns
