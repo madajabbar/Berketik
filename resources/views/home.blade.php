@@ -29,7 +29,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
                 </div>
                 <div class="modal-body mx-auto h-100 bg-warning">
-                <div class="container my-auto bg-danger">
+                <div class="container my-auto bg-danger" style="margin-top: 30%">
                     {!!$qr!!}
                 </div>
                 </div>
