@@ -21,12 +21,12 @@
     </section>
     <!-- Button trigger modal -->
     <!-- Modal -->
-    <div class="modal fade h-100" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog h-100">
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen	">
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="d-flex justify-content-center">
-                        {{!!$qr!!}}
+                        {!!$qr!!}
                     </div>
                   </div>
                 <div class="modal-footer">
