@@ -29,12 +29,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
                 </div>
                 <div class="modal-body mx-auto">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="mx-auto">
-                            {!!$qr!!}
-                        </div>
-                    </div>
+                    <center>
+                        {!!$qr!!}
+                    </center>
                 </div>
                 </div>
                 <div class="modal-footer">
