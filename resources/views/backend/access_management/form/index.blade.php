@@ -46,7 +46,7 @@
                                             <td>{{ $data->role->name }}</td>
                                             <td>
                                                 <input type="checkbox" class="form-check-input" name="add[]"
-                                                    id="checkbox2" value{{$data->id}}>
+                                                    id="checkbox2" value="{{$data->id}}">
                                                 <label for="checkbox2">Tambahkan</label>
                                             </td>
                                         </tr>
