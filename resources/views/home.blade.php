@@ -30,17 +30,17 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <div class="row">
-                          <div class="col align-self-start">
-                            One of three columns
+                        <div class="row align-items-center">
+                            <div class="col">
+                              One of three columns
+                            </div>
+                            <div class="col">
+                              One of three columns
+                            </div>
+                            <div class="col">
+                              One of three columns
+                            </div>
                           </div>
-                          <div class="col align-self-center">
-                            One of three columns
-                          </div>
-                          <div class="col align-self-end">
-                            One of three columns
-                          </div>
-                        </div>
                       </div>
                 </div>
                 <div class="modal-footer">
