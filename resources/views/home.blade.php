@@ -29,8 +29,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
                 </div>
                 <div class="modal-body mx-auto h-100">
-                    <div class="container bg-danger h-100">
-                        {!! $qr !!}
+                    <div class="container h-100">
+                        <center>
+                            {!! $qr !!}
+                        </center>
                     </div>
                 </div>
                 <div class="modal-footer">
