@@ -29,19 +29,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
                 </div>
                 <div class="modal-body">
-                    <div class="container h-100 bg-danger">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                One of three columns
-                            </div>
-                            <div class="col">
-                                One of three columns
-                            </div>
-                            <div class="col">
-                                One of three columns
-                            </div>
+                    <div class="container">
+                        <div class="row">
+                          <div class="col align-self-start">
+                            One of three columns
+                          </div>
+                          <div class="col align-self-center">
+                            One of three columns
+                          </div>
+                          <div class="col align-self-end">
+                            One of three columns
+                          </div>
                         </div>
-                    </div>
+                      </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
