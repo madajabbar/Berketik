@@ -31,10 +31,16 @@
                 <div class="modal-body mx-auto h-100">
                     <div class="container h-100">
                         <div class="row">
-                            <div class="col align-self-center">
-                                {!! $qr !!}
+                            <div class="col align-self-start">
+                              One of three columns
                             </div>
-                        </div>
+                            <div class="col align-self-center">
+                              One of three columns
+                            </div>
+                            <div class="col align-self-end">
+                              One of three columns
+                            </div>
+                          </div>
                     </div>
                 </div>
                 <div class="modal-footer">
