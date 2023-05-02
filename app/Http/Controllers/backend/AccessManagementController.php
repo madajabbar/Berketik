@@ -65,12 +65,14 @@ class AccessManagementController extends Controller
         // }
         // dd($i);
         // dd($request->access_id);
+        dd($request->add);
+
         foreach($request->add as $key){
             if($key == 'on'){
                 AccessUser::create(
                     [
                         'access_id'=>$request->access_id,
-                        'user_id'=>$request->add[$i]
+                        'user_id'=>$request->user_id[$i]
                     ]
                 );
                 // dd('test');
