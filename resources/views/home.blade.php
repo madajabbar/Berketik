@@ -25,6 +25,9 @@
         <div class="modal-dialog modal-fullscreen	">
             <div class="modal-content">
                 <div class="modal-body">
+                    <div class="container"></div>
+                    <div class="container"></div>
+                    <div class="container"></div>
                     <div class="d-flex justify-content-center">
                         {!!$qr!!}
                     </div>
