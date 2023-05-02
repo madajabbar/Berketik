@@ -31,9 +31,7 @@
                 <div class="modal-body mx-auto h-100 position-relative">
 
   <div class="position-absolute top-50 start-50 translate-middle">
-      <div class="container">
           {!!$qr!!}
-      </div>
 
   </div>
                 </div>
