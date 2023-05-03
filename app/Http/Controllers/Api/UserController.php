@@ -11,7 +11,6 @@ class UserController extends Controller
 {
     public function index(Request $request){
         $data = Auth::user();
-        dd($data);
         $user = $request->user()->currentAccessToken()->plainTextToken;
         $access = [];
         foreach($data->access as $key => $value){
