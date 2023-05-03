@@ -12,6 +12,7 @@ class UserController extends Controller
     public function index(Request $request){
         $data = Auth::user();
         $user = $request->user()->currentAccessToken()->plainTextToken;
+        dd($user);
         $access = [];
         foreach($data->access as $key => $value){
             $access[] = $value->unique_key;
