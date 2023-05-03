@@ -17,7 +17,7 @@ class UserController extends Controller
         foreach($data->access as $key => $value){
             $access[] = $value->unique_key;
         }
-        $data = UserResource::collection($data);
+       $data = UserResource::collection(Auth::user());
         $qr = $data->name.'-'.implode('-', $access);
         return ResponseFormatter::success(
             [
