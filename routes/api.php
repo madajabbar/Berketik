@@ -37,7 +37,7 @@ Route::post('/test',function (Request $request) {
 });
 Route::post('/login', [AuthController::class,'login']);
 Route::post('/register', [AuthController::class,'register']);
-Route::middleware('auth:api')->group(function(){
+Route::middleware(['auth:api'])->group(function(){
     Route::get('/user',[UserController::class,'index']);
     Route::get('/logout', [AuthController::class,'logout']);
 });
