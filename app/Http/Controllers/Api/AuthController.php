@@ -39,11 +39,10 @@ class AuthController extends Controller
 
         }
         catch(Exception $e){
-            return ResponseFormatter::success([
-                'access_token' => $tokenResult,
-                'token_type' => 'Bearer',
-                'user' => $user,
-            ],'Authenticated');
+            return ResponseFormatter::error([
+                'message' => $e->getMessage(),
+                'details' => $e->getTrace(),
+            ],'Not Authenticated');
         }
     }
     public function logout(Request $request){
