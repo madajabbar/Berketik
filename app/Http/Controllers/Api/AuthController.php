@@ -31,7 +31,6 @@ class AuthController extends Controller
                 throw new \Exception('Invalid credentials');
             }
             $tokenResult = $user->createToken('authToken')->plainTextToken;
-            dd($user);
             return ResponseFormatter::success([
                 'access_token' => $tokenResult,
                 'token_type' => 'Bearer',
