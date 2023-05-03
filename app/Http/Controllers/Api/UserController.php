@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,8 +17,7 @@ class UserController extends Controller
         foreach($data->access as $key => $value){
             $access[] = $value->unique_key;
         }
-        $user = Auth::user();
-        
+        $data = UserResource::collection($data);
         $qr = $data->name.'-'.implode('-', $access);
         return ResponseFormatter::success(
             [
