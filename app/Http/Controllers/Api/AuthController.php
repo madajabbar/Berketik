@@ -30,6 +30,7 @@ class AuthController extends Controller
             if(!Hash::check($request['password'],$user->password, [])) {
                 throw new \Exception('Invalid credentials');
             }
+            dd($user);
             $tokenResult = $user->createToken('authToken')->plainTextToken;
             return ResponseFormatter::success([
                 'access_token' => $tokenResult,
