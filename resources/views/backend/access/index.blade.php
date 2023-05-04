@@ -48,6 +48,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>Hari</th>
                                 <th>Ruangan</th>
                                 <th>Waktu Mulai</th>
                                 <th>Waktu Selesai</th>
@@ -87,6 +88,10 @@
                     {
                         data: 'name',
                         name: 'name'
+                    },
+                    {
+                        data: 'day',
+                        name: 'day'
                     },
                     {
                         data: 'room_id',
