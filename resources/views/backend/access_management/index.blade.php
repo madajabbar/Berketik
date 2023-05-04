@@ -35,14 +35,6 @@
                         Refresh
                     </button>
                 </div>
-                {{-- <div class="col my-1">
-                    <button id="All" type="button" onclick="allData()"
-                        class="btn btn-outline-light block">Semua Data</button>
-                    @foreach ($role as $data)
-                    <button id="{{ $data->name }}" type="button" onclick="searchData('{{ $data->name }}')"
-                        class="btn btn-outline-light block">{{ $data->name }}</button>
-                    @endforeach
-                </div> --}}
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -52,6 +44,7 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Ruangan</th>
+                                <th>Hari</th>
                                 <th>User</th>
                                 <th>Action</th>
                             </tr>
@@ -92,6 +85,10 @@
                     {
                         data: 'room_id',
                         name: 'room_id'
+                    },
+                    {
+                        data: 'day',
+                        name: 'day'
                     },
                     {
                         data: 'user',
