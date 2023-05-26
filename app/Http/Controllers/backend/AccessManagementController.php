@@ -30,7 +30,7 @@ class AccessManagementController extends Controller
                     return $tmp;
                 })
                 ->addColumn('action', function ($data) {
-                    $show = "/access-management/".$data->slug;
+                    $show = "/access-management/".$data->id;
                     $create = "/access-management/".$data->id."/edit";
                     return '
                         <a href="'.$show.'" data-original-title="Edit" class="edit btn btn-warning btn-sm editProduct"><i class="fa fa-eye"></i></a>
@@ -77,8 +77,8 @@ class AccessManagementController extends Controller
         return redirect(route('access-management.index'));
     }
 
-    public function show($slug, Request $request){
-        $access = Access::where('slug', $slug)->first();
+    public function show($id, Request $request){
+        $access = Access::where('id', $id)->first();
         $data['slug'] = $access->slug;
         $data['title'] = 'User Yang Memiliki Akses '.$access->name;
         if ($request->ajax()) {
