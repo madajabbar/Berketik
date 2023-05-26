@@ -79,7 +79,7 @@ class AccessManagementController extends Controller
 
     public function show($id, Request $request){
         $access = Access::where('id', $id)->first();
-        $data['slug'] = $access->slug;
+        $data['id'] = $id;
         $data['title'] = 'User Yang Memiliki Akses '.$access->name;
         if ($request->ajax()) {
             $data = AccessUser::where('access_id', $access->id)->get();
