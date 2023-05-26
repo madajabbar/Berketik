@@ -79,7 +79,7 @@
             var jquery_datatable = $("#table1").DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('access-management.show',$id) }}",
+                ajax: "{{ route('access-management.show',$slug) }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex'
