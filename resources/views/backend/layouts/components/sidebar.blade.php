@@ -45,7 +45,7 @@
                 <li class="sidebar-title">Menu</li>
 
                 <li class="sidebar-item ">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="{{route('home.index')}}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -69,7 +69,7 @@
                     </ul>
                 </li>
 
-                <li class="sidebar-item  has-sub">
+                {{-- <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-collection-fill"></i>
                         <span>Extra</span>
@@ -82,7 +82,7 @@
                             <a href="extra-component-sweetalert.html">Soon</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
                 <li class="sidebar-item  ">
                     <a href="{{ route('user-management.index') }}" class='sidebar-link'>
@@ -96,14 +96,10 @@
                         <span>Manajemen Akses</span>
                     </a>
                 </li>
-
-                <li class="sidebar-title">Raise Support</li>
-
-
                 <li class="sidebar-item  ">
-                    <a href="https://github.com/zuramai/mazer/blob/main/CONTRIBUTING.md" class='sidebar-link'>
+                    <a href="{{route('log.index')}}" class='sidebar-link'>
                         <i class="bi bi-puzzle"></i>
-                        <span>Contribute</span>
+                        <span>Log Data</span>
                     </a>
                 </li>
                 <li class="sidebar-item  ">

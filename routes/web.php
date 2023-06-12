@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\AccessController;
 use App\Http\Controllers\backend\AccessManagementController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\LogController;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\RoomController;
 use App\Http\Controllers\backend\UserManagementController;
@@ -35,6 +36,7 @@ Route::get('/403',function () {
     return view('errors.403');
 });
 Route::middleware(['auth','admin'])->group(function () {
+    Route::resource('/log', LogController::class);
     Route::resource('/home', DashboardController::class);
     Route::resource('/access', AccessController::class);
     Route::resource('/room', RoomController::class);
