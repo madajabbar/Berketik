@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Access;
 use App\Models\AccessUser;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Laravel\Ui\Presets\React;
 use Yajra\DataTables\Facades\DataTables;
@@ -28,6 +29,9 @@ class AccessManagementController extends Controller
                         $tmp[] = ' '.$user->name;
                     }
                     return $tmp;
+                })
+                ->addColumn('time',function($data){
+                    return Carbon::parse($data->start_at)->format('H:i').'-'.Carbon::parse($data->end_at)->format('H:i');
                 })
                 ->addColumn('action', function ($data) {
                     $show = "/access-management/".$data->id;

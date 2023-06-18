@@ -45,6 +45,7 @@
                                 <th>Nama</th>
                                 <th>Ruangan</th>
                                 <th>Hari</th>
+                                <th>Waktu</th>
                                 <th>User</th>
                                 <th>Action</th>
                             </tr>
@@ -89,6 +90,10 @@
                     {
                         data: 'day',
                         name: 'day'
+                    },
+                    {
+                        data: 'time',
+                        name: 'time'
                     },
                     {
                         data: 'user',
