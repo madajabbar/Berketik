@@ -7,6 +7,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class HomeController extends Controller
@@ -25,7 +26,7 @@ class HomeController extends Controller
             $access[] = $value->unique_key;
         }
         // dd($access);
-        $data['qr'] = QrCode::size(300)->generate($data['user']->name.'-'.implode('-',$access));
+        $data['qr'] = QrCode::size(300)->generate(Hash::make($data['user']->name));
         // dd($data['user']->access);
         return view('home',$data);
     }

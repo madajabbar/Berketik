@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,7 +19,7 @@ class UserController extends Controller
             $access[] = $value->unique_key;
         }
        $data = new UserResource(Auth::user());
-        $qr = $data->name.'-'.implode('-', $access);
+        $qr = Hash::make($data->name);
         return ResponseFormatter::success(
             [
                 'user' => $data,
