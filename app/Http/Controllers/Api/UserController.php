@@ -19,7 +19,7 @@ class UserController extends Controller
             $access[] = $value->unique_key;
         }
        $data = new UserResource(Auth::user());
-        $qr = Hash::make($data->name);
+        $qr = Hash::make($data->email);
         return ResponseFormatter::success(
             [
                 'user' => $data,

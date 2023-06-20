@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Storage;
 Route::resource('/camera', CameraController::class);
 Route::get('/room', [EdgeController::class,'room']);
 Route::get('/access', [EdgeController::class,'access']);
+Route::get('/accessuser', [EdgeController::class,'accessuser']);
 Route::get('/getuser', [EdgeController::class,'user']);
 Route::post('/get',[EdgeController::class,'get']);
 Route::post('/test',function (Request $request) {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Models\Access;
+use App\Models\AccessUser;
 use App\Models\Camera;
 use App\Models\Log;
 use App\Models\Room;
@@ -33,6 +34,12 @@ class EdgeController extends Controller
         $user = User::select('id','name', 'unique_key')->get();
         return response()->json(
             $user
+        );
+    }
+    public function accessuser(){
+        $accessuser = AccessUser::all();
+        return response()->json(
+            $accessuser
         );
     }
     public function get(Request $request)
